@@ -5,6 +5,14 @@
 function add(){
 	clear
 	echo this is not done yet
+	echo "VocTrain - Add a vocabulary
+
+	1) make a new vocabulary file
+	2) add a vocabulary to an existing file
+
+___________________________________________________________________"
+	read INPUT
+	echo $INPUT
 }
 function learn(){
 	clear
@@ -15,7 +23,7 @@ function stats(){
 	echo this is not done yet
 }
 function mainMenu() {
-	echo "VocTrain Main Menu
+	echo "VocTrain - Main Menu
 
 	1) Add a vocabulary
 	2) Get Asked
