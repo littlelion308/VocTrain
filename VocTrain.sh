@@ -21,6 +21,11 @@ function learn(){
 function stats(){
 	clear
 	echo this is not done yet
+	echo "VocTrain - statistics"
+	cat ~/.local/share/VocTrain/stats.txt
+	echo "_____________________________________________________________" 
+	read -p "" INPUT
+	clear
 }
 function mainMenu() {
 	echo "VocTrain - Main Menu
