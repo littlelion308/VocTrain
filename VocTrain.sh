@@ -14,9 +14,24 @@ ___________________________________________________________________"
 	read INPUT
 	echo $INPUT
 }
+function read(){
+#	LINE=$(sed -n $1 $2)
+	echo $LINE
+}
 function learn(){
+	LINENR="3"
+	FILE="~/.local/share/VocTrain/de1-de2-en1-en2.VTv"
 	clear
-	echo this is not done yet
+	echo "this is not done yet"
+	echo "VocTrain - Get Asked"
+#	echo $(read $LINENR $FILE)
+	echo "____________________________________________________"
+	read INPUT
+#	if [[ $INPUT == $(read 1 $FILE) ]] || [[ $INPUT == $(read 2 $FILE) ]];then
+		echo You got it right
+#	else
+		echo You got it wrong	
+#	fi
 }
 function stats(){
 	clear
@@ -66,6 +81,7 @@ mainMenu
 EXIT="false"
 while [ $EXIT = "false" ]
 do
-	mainMenu
+	nop
+#	mainMenu
 done 
 exit 0
