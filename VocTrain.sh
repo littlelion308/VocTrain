@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#! /bin/bash
 # VocTrain 0.2
 
 
@@ -25,7 +25,7 @@ function learn(){
 	echo "this is not done yet"
 	echo "VocTrain - Get Asked"
 #	echo $(read $LINENR $FILE)
-	echo "____________________________________________________"
+	echo "___________________________________"
 	read INPUT
 #	if [[ $INPUT == $(read 1 $FILE) ]] || [[ $INPUT == $(read 2 $FILE) ]];then
 		echo You got it right
@@ -38,7 +38,7 @@ function stats(){
 	echo this is not done yet
 	echo "VocTrain - statistics"
 	cat ~/.local/share/VocTrain/stats.txt
-	echo "_____________________________________________________________" 
+	echo "_________________________________" 
 	read -p "" INPUT
 	clear
 }
@@ -50,9 +50,10 @@ function mainMenu() {
 	3) View statistics
 	4) Exit
 	
-_________________________________________
+_________________________________
 "
-	read INPUT
+#	read INPUT
+	INPUT="3"
 	case $INPUT in
 		1|[aA]|[1][] )
 			add
@@ -69,11 +70,8 @@ _________________________________________
 	esac
 }
 function install_first() {
-	if [[ -e "~/.local/share/VocTrain/" ]]; then
-		return 1
-	else
-		mkdir ~/.local/share/VocTrain
-	fi
+	mkdir ~/.local/share/VocTrain
+	touch ~/.local/share/VocTrain/stats.txt
 }
 install_first
 clear
@@ -81,6 +79,7 @@ mainMenu
 EXIT="false"
 while [ $EXIT = "false" ]
 do
+	sleep 100000000000000m
 	nop
 #	mainMenu
 done 
