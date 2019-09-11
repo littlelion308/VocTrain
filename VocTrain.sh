@@ -43,7 +43,7 @@ function stats(){
 	clear
 }
 function mainMenu() {
-	echo "VocTrain - Main Menu
+	read -p "VocTrain - Main Menu
 
 	1) Add a vocabulary
 	2) Get Asked
@@ -51,10 +51,9 @@ function mainMenu() {
 	4) Exit
 	
 _________________________________
-"
-#	read INPUT
-	INPUT="3"
-	case $INPUT in
+" INPUTT
+	echo $INPUTT
+	case $INPUTT in
 		1|[aA]|[1][] )
 			add
 			;;
