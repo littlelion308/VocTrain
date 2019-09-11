@@ -43,16 +43,22 @@ function stats(){
 	clear
 }
 function mainMenu() {
-	read -p "VocTrain - Main Menu
-
-	1) Add a vocabulary
-	2) Get Asked
-	3) View statistics
-	4) Exit
+#	echo "VocTrain - Main Menu
+#
+#	1) Add a vocabulary
+#	2) Get Asked
+#	3) View statistics
+#	4) Exit
+#	
+#_________________________________" 	
 	
-_________________________________
-" INPUTT
+	echo read start
+	
+	read INPUTT
+       	
+	
 	echo $INPUTT
+	echo read end
 	case $INPUTT in
 		1|[aA]|[1][] )
 			add
@@ -74,12 +80,15 @@ function install_first() {
 }
 install_first
 clear
+echo start mainMenu
 mainMenu
+echo end mainMene
 EXIT="false"
 while [ $EXIT = "false" ]
 do
-	sleep 100000000000000m
-	nop
+EXIT="true"
+#	sleep 100000000000000m
+#	nop
 #	mainMenu
 done 
 exit 0
