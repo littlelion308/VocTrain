@@ -54,7 +54,7 @@ function mainMenu() {
 	
 	echo read start
 	
-	read INPUTT
+	echo inlinea; echo right;  read INPUTT; echo in line
        	
 	
 	echo $INPUTT
@@ -76,7 +76,7 @@ function mainMenu() {
 }
 function install_first() {
 	mkdir ~/.local/share/VocTrain
-	touch ~/.local/share/VocTrain/stats.txt
+	echo "" >> ~/.local/share/VocTrain/stats.txt
 }
 install_first
 clear
