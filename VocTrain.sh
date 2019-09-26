@@ -43,18 +43,20 @@ function stats(){
 	clear
 }
 function mainMenu() {
-#	echo "VocTrain - Main Menu
-#
-#	1) Add a vocabulary
-#	2) Get Asked
-#	3) View statistics
-#	4) Exit
-#	
-#_________________________________" 	
+	echo "VocTrain - Main Menu
+
+	1) Add a vocabulary
+	2) Get Asked
+	3) View statistics
+	4) Exit
+	
+_________________________________" 	
 	
 	echo read start
+
+	read -t 10 -p "What do you want to do? " JOBINPUT
 	
-	echo inlinea; echo right;  read INPUTT; echo in line
+	read -p "fhjk" INPUTT
        	
 	
 	echo $INPUTT
@@ -75,14 +77,19 @@ function mainMenu() {
 	esac
 }
 function install_first() {
-	mkdir ~/.local/share/VocTrain
-	echo "" >> ~/.local/share/VocTrain/stats.txt
+#	mkdir ~/.local/share/VocTrain
+#	echo "" >> ~/.local/share/VocTrain/stats.txt
+	echo installed
 }
 install_first
 clear
 echo start mainMenu
+
+read -t 10 -p "What do you want to do? " JOBINPUT
+
+
 mainMenu
-echo end mainMene
+echo end mainMenu
 EXIT="false"
 while [ $EXIT = "false" ]
 do
