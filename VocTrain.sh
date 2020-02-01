@@ -1,101 +1,54 @@
-#! /bin/bash
-# VocTrain 0.2
+#!/bin/sh
+# Depends On:POSIX compaient shell, sed, awk
 
-
-function add(){
-	clear
-	echo this is not done yet
-	echo "VocTrain - Add a vocabulary
-
-	1) make a new vocabulary file
-	2) add a vocabulary to an existing file
-
-___________________________________________________________________"
-	read INPUT
-	echo $INPUT
+function mainMenu(){
+	echo "Voctrain - Main menu"
+	echo ""
+	echo "	1)Learn added vocabulary"
+	echo "	2)Add vocabulary"
+	echo "	3)Quit"
+	echo "__________________________________________"
+	read JOB
+	mMexecution
 }
-function read(){
-#	LINE=$(sed -n $1 $2)
-	echo $LINE
+function Add(){
+        echo "Voctrain - Add vocabulary"
+        echo ""
+        echo "  1)Add vocabulary to a new Dictonary"
+        echo "  2)Add vocabulary to an existing Dictinary"
+        echo "_____________________________________________________" 
+        read ADDJOB 
+        echo $JOB --- $ADDJOB 
 }
-function learn(){
-	LINENR="3"
-	FILE="~/.local/share/VocTrain/de1-de2-en1-en2.VTv"
-	clear
-	echo "this is not done yet"
-	echo "VocTrain - Get Asked"
-#	echo $(read $LINENR $FILE)
-	echo "___________________________________"
-	read INPUT
-#	if [[ $INPUT == $(read 1 $FILE) ]] || [[ $INPUT == $(read 2 $FILE) ]];then
-		echo You got it right
-#	else
-		echo You got it wrong	
-#	fi
+function Learn(){
+	echo learn
+	echo $JOB
+	echo "Voctrain - Learn added vocabulary"
+	echo ""
+	echo "	What Dictonary ?"
+	echo "____________________________"
+#	read DICT
+#	RANDOMS=$(cat ~/.local/share/$DICT | wc -l)
+#	echo $RANDOMS
+	RANDOMS=50
+	RANDB=$((RANDOMS / 2))
+	RANDOM=$(awk -v min=1 -v max=$RANDB 'BEGIN{srand(); print int(min+rand()*(max-min+1))}')
+	echo $RANDOM
 }
-function stats(){
-	clear
-	echo this is not done yet
-	echo "VocTrain - statistics"
-	cat ~/.local/share/VocTrain/stats.txt
-	echo "_________________________________" 
-	read -p "" INPUT
-	clear
-}
-function mainMenu() {
-	echo "VocTrain - Main Menu
-
-	1) Add a vocabulary
-	2) Get Asked
-	3) View statistics
-	4) Exit
-	
-_________________________________" 	
-	
-	echo read start
-
-	read -t 10 -p "What do you want to do? " JOBINPUT
-	
-	read -p "fhjk" INPUTT
-       	
-	
-	echo $INPUTT
-	echo read end
-	case $INPUTT in
-		1|[aA]|[1][] )
-			add
-			;;
-		2|[bB]|[2][] )
-			learn
-			;;
-		3|[cC]|[3][] )
-			stats
-			;;
-		4|[dD]|[4][] )
-			exit 0
-			;;
+function mMexecution(){
+	case $JOB in
+		[2@bB])
+		echo 2
+		Add
+		;;
+		[3#cC])
+		exit 0
+		echo 3
+		;;
+		*)
+		echo 1 or noting 
+		Learn
+		;;	
 	esac
 }
-function install_first() {
-#	mkdir ~/.local/share/VocTrain
-#	echo "" >> ~/.local/share/VocTrain/stats.txt
-	echo installed
-}
-install_first
-clear
-echo start mainMenu
-
-read -t 10 -p "What do you want to do? " JOBINPUT
-
-
 mainMenu
-echo end mainMenu
-EXIT="false"
-while [ $EXIT = "false" ]
-do
-EXIT="true"
-#	sleep 100000000000000m
-#	nop
-#	mainMenu
-done 
-exit 0
